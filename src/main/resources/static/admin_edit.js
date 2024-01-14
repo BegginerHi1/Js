@@ -3,7 +3,12 @@ function edit(id) {
     let lastName = document.getElementById('edit-lastName'+id).value
     let age = document.getElementById('edit-age'+id).value
     let email = document.getElementById('edit-email'+id).value
+
     let password = document.getElementById('edit-password'+id).value
+    if (password === '') {
+        alert('please, enter password for edit')
+        return false
+    }
 
     let select = document.getElementById('edit-role'+id)
     let roles = []
