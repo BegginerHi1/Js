@@ -65,5 +65,6 @@ function edit(id) {
         .then(json => {
             console.log(json)
             getTableData()
+            document.querySelector('.modal-backdrop').remove()
         })
 }
