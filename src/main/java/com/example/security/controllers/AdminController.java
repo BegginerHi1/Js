@@ -24,7 +24,7 @@ public class AdminController {
 
     @GetMapping
     public String admin(Model model, Principal principal) {
-        model.addAttribute("user", userService.findByEmail(principal.getName()));
+        model.addAttribute("authUser", userService.findByEmail(principal.getName()));
         model.addAttribute("roles", roleService.findAll());
         return "/admin/main_menu";
     }
@@ -36,6 +36,12 @@ public class AdminController {
                 .stream()
                 .map(u -> userService.convertToUserDto(u))
                 .collect(Collectors.toList());
+    }
+
+    @ResponseBody
+    @GetMapping("/users/{id}")
+    public UserDto userById(@PathVariable int id) {
+        return userService.convertToUserDto(userService.findById(id));
     }
 
     @ResponseBody
