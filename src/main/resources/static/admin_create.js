@@ -56,6 +56,15 @@ function create() {
         .then(response => response.json)
         .then(json => {
             getTableData()
-            alert('Successful')
+            document.getElementById('firstName').value = ''
+            document.getElementById('lastName').value = ''
+            document.getElementById('age').value = ''
+            document.getElementById('email').value = ''
+            document.getElementById('password').value = ''
+            document.getElementById('role').value = ''
+            document.getElementById('nav-home-tab').className = 'nav-link active'
+            document.getElementById('nav-profile-tab').className = 'nav-link'
+            document.getElementById('nav-home').className = 'tab-pane fade active show'
+            document.getElementById('nav-profile').className = 'tab-pane fade'
         })
 }
