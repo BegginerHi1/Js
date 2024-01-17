@@ -1,27 +1,32 @@
 package com.example.security.services;
 
-//import com.example.security.dto.UserDto;
 import com.example.security.dto.UserDto;
 import com.example.security.entities.User;
 import com.example.security.repositories.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.Model;
 
 import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
 public class UserServiceImpl implements UserService {
+
+    private final PasswordEncoder passwordEncoder;
+
+    private final UserRepository userRepository;
+
     @Autowired
-    private PasswordEncoder passwordEncoder;
-    @Autowired
-    private UserRepository userRepository;
+    public UserServiceImpl(@Lazy PasswordEncoder passwordEncoder, UserRepository userRepository) {
+        this.passwordEncoder = passwordEncoder;
+        this.userRepository = userRepository;
+    }
 
     @Override
     public User findByEmail(String email) {
