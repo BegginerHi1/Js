@@ -1,5 +1,5 @@
 function getTableData() {
-    fetch('http://localhost:8080/admin/users')
+    fetch('http://localhost:8080/api/users')
         .then(response => response.json())
         .then(json => {
             console.log(json)

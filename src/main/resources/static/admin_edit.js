@@ -54,7 +54,7 @@ function edit(id) {
             ]
         }
     }
-    fetch('http://localhost:8080/admin/users', {
+    fetch('http://localhost:8080/api/users', {
         method: 'PUT',
         headers: {
             'Content-type': 'application/json; charset=UTF-8'

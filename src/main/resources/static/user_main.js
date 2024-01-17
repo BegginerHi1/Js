@@ -1,7 +1,7 @@
 let id = parseInt(document.getElementById('span2').textContent)
 
 function getTableDataForAuthUser() {
-    fetch('http://localhost:8080/user/' + id)
+    fetch('http://localhost:8080/api/users/' + id)
         .then(response => response.json())
         .then(json => {
             console.log(json)

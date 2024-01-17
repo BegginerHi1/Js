@@ -1,7 +1,7 @@
 let id = document.getElementById('mySpan2').textContent
 
 function getTableDataForAuthAdmin() {
-    fetch('http://localhost:8080/admin/users/' + id)
+    fetch('http://localhost:8080/api/users/' + id)
         .then(response => response.json())
         .then(json => {
             console.log(json)
